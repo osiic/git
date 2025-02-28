@@ -8,16 +8,21 @@
 [alias]
 	st = status
 	co = checkout
+	cb = checkout -b
 	br = branch
+	bd = branch -d
 	cm = commit -m
 	pu = push origin
+	ps = push origin --set-upstream origin
+  ps = "!f() { push origin --set-upstream origin \"$1\"; }; f"
 	pl = pull origin
 	last = log -1 HEAD
 	undo = reset --soft HEAD~1
 	df = diff
 	logg = log --graph --decorate --oneline --all
   acm = "!f() { git add . && git commit -m \"$1\"; }; f"
-	s = "!git status && git branch && git log -1"
+  all = "!git pull && git add . && git commit -m 'init: all file and folder' && git push"
+	s = "!echo '🟢 GIT STATUS:' && git status -s && echo '\n🔵 CURRENT BRANCH:' && git branch --show-current && echo '\n🟡 LAST COMMIT:' && git log -1 --pretty=format:'%C(yellow)%h%Creset - %C(cyan)%s%Creset [%C(blue)%an%Creset, %C(green)%cr%Creset]' && echo ''"
 
 [color]
 	ui = auto
@@ -27,9 +32,6 @@
 
 [branch]
 	autosetupmerge = always
-
-[pull]
-	rebase = true
 
 [core]
 	editor = nvim
