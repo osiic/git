@@ -1,0 +1,41 @@
+[user]
+	email = osiic.offcl@gmail.com
+	name = Osi ic
+
+[init]
+	defaultBranch = main
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	pu = push origin
+	pl = pull origin
+	last = log -1 HEAD
+	undo = reset --soft HEAD~1
+	df = diff
+	logg = log --graph --decorate --oneline --all
+  acm = "!f() { git add . && git commit -m \"$1\"; }; f"
+	s = "!git status && git branch && git log -1"
+
+[color]
+	ui = auto
+
+[credential]
+	helper = store
+
+[branch]
+	autosetupmerge = always
+
+[pull]
+	rebase = true
+
+[core]
+	editor = nvim
+
+[diff]
+	tool = vimdiff
+
+[push]
+	default = current
